@@ -12,10 +12,10 @@ namespace network_programming {
     class ServerAsioAllocation {
     public:
         ServerAsioAllocation(boost::asio::io_context& ioContext, short port);
-        ~ServerAsioAllocation();
+        ~ServerAsioAllocation() = default;
     private:
         void doAccept();
-        boost::asio::ip::tcp::acceptor acceptor;
+        boost::asio::ip::tcp::acceptor serverSocket;
     };
 
 }

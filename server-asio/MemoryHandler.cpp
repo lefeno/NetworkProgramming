@@ -2,11 +2,11 @@
 // Created by blue on 3/30/22.
 //
 
-#include "MemoryHandler.h"
+#include "MemoryHandler.hpp"
 
 namespace network_programming {
 
-    MemoryHandler::MemoryHandler(): {
+    MemoryHandler::MemoryHandler() {
         this->storageInUse = false;
     }
 
