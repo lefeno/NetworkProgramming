@@ -7,6 +7,8 @@
 
 #include "CustomAllocHandler.h"
 #include "boost/asio.hpp"
+#include "Participant.h"
+#include "Room.hpp"
 
 #define MAX_DATA_RECV   1024
 
@@ -14,17 +16,18 @@ namespace network_programming {
 
     using boost::asio::ip::tcp;
 
-    class Session: public std::enable_shared_from_this<Session> {
+    class Session: public Participant, public std::enable_shared_from_this<Session> {
     public:
-        Session(tcp::socket socket);
+        Session(tcp::socket socket, Room& room);
         ~Session();
         void start();
     private:
+        void deliver(const std::string& msg) override ;
         void doRead();
-        void doWrite(std::size_t length);
+        void doWrite(const std::string& msg);
         tcp::socket socket;
         std::array<char, MAX_DATA_RECV> dataReceive;
-        MemoryHandler memoryHandler;
+        Room& room;
     };
 }
 

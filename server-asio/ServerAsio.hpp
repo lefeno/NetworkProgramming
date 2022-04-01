@@ -6,16 +6,20 @@
 #define NETWORK_PROGRAMMING_SERVERASIOALLOCATION_H
 
 #include <boost/asio.hpp>
+#include "Room.hpp"
 
 namespace network_programming {
 
-    class ServerAsioAllocation {
+    using boost::asio::ip::tcp;
+
+    class ServerAsio {
     public:
-        ServerAsioAllocation(boost::asio::io_context& ioContext, short port);
-        ~ServerAsioAllocation() = default;
+        ServerAsio(boost::asio::io_context& ioContext, const tcp::endpoint& endpoint);
+        ~ServerAsio() = default;
     private:
         void doAccept();
-        boost::asio::ip::tcp::acceptor serverSocket;
+        boost::asio::ip::tcp::acceptor listenSocket;
+        Room room;
     };
 
 }

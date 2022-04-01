@@ -14,8 +14,8 @@ namespace network_programming {
     public:
         CustomAllocHandler(MemoryHandler& memory, Handler handler):
         memoryHandler(memory), handler(handler) {
-
         }
+
         AllocatorHandler<Handler> getAllocator() const noexcept {
             return AllocatorHandler<Handler>(MemoryHandler());
         }

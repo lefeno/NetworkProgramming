@@ -15,11 +15,13 @@ add_executable(${PROJECT_NAME}
         server-posix/ServerPosixPreFork.cpp
         server-posix/ServerPosixPreForkDescriptorPass.cpp
         server-posix/ServerPosixThread.cpp server-posix/ServerPosixPreThread.cpp
-        server-posix/ServerPosixPreThread.h server-asio/ServerAsioAllocation.cpp
-        server-asio/ServerAsioAllocation.hpp server-asio/MemoryHandler.cpp
+        server-posix/ServerPosixPreThread.h server-asio/ServerAsio.cpp
+        server-asio/ServerAsio.hpp server-asio/MemoryHandler.cpp
         server-asio/MemoryHandler.hpp server-asio/AllocatorHandler.h
-        server-asio/CustomAllocHandler.h server-asio/Session.cpp server-asio/ChatServer.cpp server-asio/ChatServer.hpp server-asio/ChatParticipant.h server-asio/ChatRoom.cpp server-asio/ChatRoom.hpp server-asio/ChatSession.cpp server-asio/ChatSession.hpp)
+        server-asio/CustomAllocHandler.h
+        server-asio/Session.cpp server-asio/Participant.h
+        server-asio/Room.cpp server-asio/Room.hpp)
 
-set (BOOST_INCLUDEDIR "/usr/boost/include/boost")
+set (BOOST_INCLUDEDIR "/usr/include/boost")
 target_link_libraries(${PROJECT_NAME} Threads::Threads)
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARY})
