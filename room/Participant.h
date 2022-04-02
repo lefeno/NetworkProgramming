@@ -2,8 +2,8 @@
 // Created by blue on 4/1/22.
 //
 
-#ifndef NETWORKPROGRAMMING_PARTICIPANT_H
-#define NETWORKPROGRAMMING_PARTICIPANT_H
+#ifndef NETWORK_PROGRAMMING_PARTICIPANT_H
+#define NETWORK_PROGRAMMING_PARTICIPANT_H
 
 #include <string>
 #include <boost/shared_ptr.hpp>
@@ -20,4 +20,4 @@ namespace network_programming {
     typedef std::shared_ptr<Participant> ParticipantPtr ;
 }
 
-#endif //NETWORKPROGRAMMING_PARTICIPANT_H
+#endif //NETWORK_PROGRAMMING_PARTICIPANT_H

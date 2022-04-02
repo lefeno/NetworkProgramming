@@ -39,10 +39,10 @@ namespace network_programming {
                 boost::asio::buffer(this->dataReceive),
                 [this, self](boost::system::error_code errorCode,
                         std::size_t length) {
-                      std::cout << FUNC_NAME << ":" << "Read message from [" << this->socket.remote_endpoint().address().to_string()
-                              << "]:" << this->socket.remote_endpoint().port() << " message "
-                              << std::string(this->dataReceive.data()) << " length " << length << std::endl;
                       if (!errorCode) {
+                          std::cout << FUNC_NAME << ":" << "Read message from [" << this->socket.remote_endpoint().address().to_string()
+                                    << "]:" << this->socket.remote_endpoint().port() << " message "
+                                    << std::string(this->dataReceive.data()) << " length " << length << std::endl;
                           this->room.deliver(std::string(this->dataReceive.data()));
                       } else {
                           this->room.leave(shared_from_this());
@@ -51,8 +51,6 @@ namespace network_programming {
     }
 
     void Session::deliver(const std::string &msg) {
-        std::cout << FUNC_NAME << ":" << "Deliver message to [" << this->socket.remote_endpoint().address().to_string()
-                  << "]:" << this->socket.remote_endpoint().port() << " message " << msg << std::endl;
         doWrite(msg);
     }
 }

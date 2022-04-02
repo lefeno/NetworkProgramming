@@ -2,8 +2,8 @@
 // Created by blue on 4/1/22.
 //
 
-#ifndef NETWORKPROGRAMMING_ROOM_HPP
-#define NETWORKPROGRAMMING_ROOM_HPP
+#ifndef NETWORK_PROGRAMMING_ROOM_HPP
+#define NETWORK_PROGRAMMING_ROOM_HPP
 
 #include <set>
 #include "Participant.h"
@@ -21,4 +21,4 @@ namespace network_programming {
 }
 
 
-#endif //NETWORKPROGRAMMING_ROOM_HPP
+#endif //NETWORK_PROGRAMMING_ROOM_HPP

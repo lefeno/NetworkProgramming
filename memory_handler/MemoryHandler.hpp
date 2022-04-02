@@ -7,8 +7,6 @@
 
 #include <boost/asio.hpp>
 
-#define CUSTOM_ALLOCATION_STORAGE_SIZE 1024
-
 namespace network_programming {
     class MemoryHandler {
     public:
@@ -20,6 +18,7 @@ namespace network_programming {
         void* allocate(std::size_t size);
         void deallocate(void* pointer);
     private:
+        enum {CUSTOM_ALLOCATION_STORAGE_SIZE = 1024};
         typename std::aligned_storage<CUSTOM_ALLOCATION_STORAGE_SIZE>::type storage;
         bool storageInUse;
     };

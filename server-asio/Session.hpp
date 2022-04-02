@@ -2,15 +2,13 @@
 // Created by blue on 3/30/22.
 //
 
-#ifndef NETWORKPROGRAMMING_SESSION_HPP
-#define NETWORKPROGRAMMING_SESSION_HPP
+#ifndef NETWORK_PROGRAMMING_SESSION_HPP
+#define NETWORK_PROGRAMMING_SESSION_HPP
 
-#include "CustomAllocHandler.h"
+#include "memory_handler/CustomAllocHandler.h"
 #include "boost/asio.hpp"
-#include "Participant.h"
-#include "Room.hpp"
-
-#define MAX_DATA_RECV   1024
+#include "room/Participant.h"
+#include "room/Room.hpp"
 
 namespace network_programming {
 
@@ -26,9 +24,10 @@ namespace network_programming {
         void doRead();
         void doWrite(const std::string& msg);
         tcp::socket socket;
+        enum {MAX_DATA_RECV = 1024};
         std::array<char, MAX_DATA_RECV> dataReceive;
         Room& room;
     };
 }
 
-#endif //NETWORKPROGRAMMING_SESSION_HPP
+#endif //NETWORK_PROGRAMMING_SESSION_HPP

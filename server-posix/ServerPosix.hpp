@@ -8,9 +8,9 @@
 #include <netdb.h>
 #include <client-channel/ClientChannel.h>
 #include <string>
+#include "socket/Socket.hpp"
 
 #define SERVER_WELCOME_MSG  "Welcome to my server"
-#define SEND_ALL_MSG        "All"
 
 namespace network_programming {
     class ServerPosix {
@@ -24,6 +24,7 @@ namespace network_programming {
         int accept(int lisenSockFd, void* peerAddr, uint32_t &peerAddrLen);
         virtual void handleConnections(int listenSockFd);
         void printServerInfo(int ai_family, void* pSockAddr);
+        Socket serverSocket;
     };
 }
 
