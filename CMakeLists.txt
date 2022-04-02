@@ -31,12 +31,14 @@ add_executable(ServerAsio
         )
 
 
-add_executable(ServerPosix
-        server-posix/server_posix_main.cpp
+add_executable(ServerPosixSync
+        server-posix/server_posix_sync_main.cpp
         server-posix/ServerPosix.cpp server-posix/ServerPosix.hpp
         ${SOCKET}
         ${ROOM_SOURCE}
-        server-posix/PosixSession.cpp server-posix/PosixSession.hpp)
+        server-posix/PosixSyncSession.cpp server-posix/PosixSyncSession.hpp
+        server-posix/ServerPosixSync.cpp server-posix/ServerPosixSync.hpp
+        )
 
 add_executable(ClientPseudo
         client-pseudo/client_main.cpp
@@ -45,8 +47,10 @@ add_executable(ClientPseudo
         )
 
 find_package(Boost REQUIRED COMPONENTS system filesystem)
-include_directories(ServerAsio ${Boost_INCLUDE_DIRS})
+include_directories(ServerPosixSync ${Boost_INCLUDE_DIRS})
 
 target_link_libraries(ClientPseudo Threads::Threads)
+target_link_libraries(ServerPosixSync Threads::Threads)
+
 target_link_libraries(ServerAsio Threads::Threads)
 target_link_libraries(ServerAsio ${Boost_LIBRARIES})

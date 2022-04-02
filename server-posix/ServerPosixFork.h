@@ -6,7 +6,7 @@
 #define NETWORK_PROGRAMMING_SERVERPOSIXFORK_H
 
 #include "client-channel/ClientChannel.h"
-#include "ServerPosix.h"
+#include "ServerPosix.hpp"
 
 typedef void (*SigFunc) (int) ;
 

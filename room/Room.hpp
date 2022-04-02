@@ -6,6 +6,7 @@
 #define NETWORK_PROGRAMMING_ROOM_HPP
 
 #include <set>
+#include <mutex>
 #include "Participant.h"
 
 namespace network_programming {
@@ -17,6 +18,7 @@ namespace network_programming {
         void leave(ParticipantPtr participantPtr);
     private:
         std::set<ParticipantPtr> participants;
+        std::mutex roomMutex;
     };
 }
 
